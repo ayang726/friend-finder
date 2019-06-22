@@ -39,63 +39,19 @@
         </section>
 
         <hr>
-        <button class="btn btn-lg btn-primary">Submit</button>
+        <button id="submitBtn" class="btn btn-lg btn-primary">Submit</button>
     </div>
-
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
         crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
-    <script>
-        const questionsArr = [
-            "I feel uncomfortable when I disagree with someone",
-            "I would enjoy attending a large party",
-            "I dislike being in competition with others",
-            "I enjoy being the center of attention",
-            "I am helpful to the people around me",
-            "I have a rich fantasy life",
-            "I avoid arguing, even when I disagree",
-            "I am concerned for the welfare of elderly people",
-            "I am determined to achieve success in life",
-            "I like to spend my free time alone"
-        ];
+    <script src="js/questions.js"></script>
 
-        questionsArr.forEach((q, i) => {
-            let html = ` 
-            <div class="question">
-                <h4>Question ${i + 1}</h4>
-                <p>${q}</p>
-                <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="question${i + 1}-dropdown"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Dropdown button
-                    </button>
-                    <div class="dropdown-menu" selection=0 aria-labelledby="question${i + 1}-dropdown">
-                        <button class="dropdown-item" selection=1>1-Strongly Disagree</button>
-                        <button class="dropdown-item" selection=2>2-Disagree</button>
-                        <button class="dropdown-item" selection=3>3-Neutral</button>
-                        <button class="dropdown-item" selection=4>4-Agree</button>
-                        <button class="dropdown-item" selection=5>5-Strongly Agree</button>
-                    </div>
-                </div>
-            </div>
-            `
-            $("#questions").append(html);
-        })
-    </script>
-
-    <script>
-        $(".dropdown-item").on("click", function () {
-            const id = "#" + ($(this).parent().attr("aria-labelledby"));
-            $(id).text($(this).text());
-            $(this).parent().attr("selection", $(this).attr("selection"));
-        });
-    </script>
+    <script src="js/survey.js"></script>
 </body>
 
 </html>
