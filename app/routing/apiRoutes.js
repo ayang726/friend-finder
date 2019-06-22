@@ -15,14 +15,14 @@ module.exports = function (app) {
         console.log("Calculating best friend");
 
         if (friends.length === 0) {
+            console.log("Storing data");
             friends.push(friendData);
             return res.json({ result: "saved", message: "You're the first data entry, no other friends exist in database" })
         }
+        if (friends.filter(friend => friend.name === friendData.name).length > 0)
+            return res.json({ result: "failed", message: "Name already exist" })
 
         friends.forEach(friend => {
-            if (friendData.name === friend.name)
-                return res.json({ result: "failed", message: "Name already exist" })
-
             let score = 0;
             for (let i = 0; i < friend.answers.length; i++) {
                 score += Math.abs(friendData.answers[i] - friend.answers[i]);
@@ -38,6 +38,6 @@ module.exports = function (app) {
         console.log("Storing data");
         console.log(friendData);
         friends.push(friendData);
-        res.json({ bestFriend: bestFriend.name, data: friendData, result: "success", message: "Best friend matched" });
+        res.json({ bestFriend: bestFriend.name, data: friendData, result: "success", message: "Your best friend is " + bestFriend.name });
     });
 }
