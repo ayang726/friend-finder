@@ -2,7 +2,7 @@ const friends = require("../data/friends");
 
 module.exports = function (app) {
     app.get("/api/friends", (req, res) => {
-        res.json(friends);
+        res.send(friends);
     });
 
     app.post("/api/friends", (req, res) => {
