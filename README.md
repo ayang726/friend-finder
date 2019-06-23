@@ -6,3 +6,5 @@ This app tracks user survey input and compares the newly added survey response a
 The Friend with the most similar set of responses to the survey questions will be identified.
 
 ##### For testing purposes, in the survey page's console, randomEntry() can be used to randomize a set of data.
+
+##### The app can be found here: https://enigmatic-fjord-37845.herokuapp.com/
